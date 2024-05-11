@@ -4,13 +4,12 @@ package com.shoes.store.Controller;
 import com.shoes.store.Entity.Clientes;
 import com.shoes.store.IService.IServiceClientes;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.logging.Logger;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("api/v1/clientes")
 public class ControllerClientes {
@@ -22,14 +21,19 @@ public class ControllerClientes {
 
     @GetMapping("/listarclientes")
     public List<Clientes> getClientes(){
-        List<Clientes> productos = serviceClientes.getClientes();
-        return productos;
+        List<Clientes> clientes = serviceClientes.getClientes();
+        return clientes;
     }
 
     @PostMapping("/registrocliente")
-    public ResponseEntity<Clientes> addCliente(@RequestBody Clientes cliente){
-        serviceClientes.addCliente(cliente);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public Clientes addCliente(@RequestBody Clientes cliente){
+        Clientes clienter = serviceClientes.addCliente(cliente);
+        return clienter;
+    }
+
+    @PutMapping("{id}")
+    public void getCliente(@RequestBody Clientes cliente){
+
     }
 
 

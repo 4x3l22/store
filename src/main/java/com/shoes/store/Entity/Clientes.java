@@ -15,7 +15,7 @@ public class Clientes {
     private Long id;
 
     @Column(name = "tipo_identificacion", nullable = false, length = 45)
-    private String total;
+    private String tipoidentificacion;
 
     @Column(name = "identificacion", nullable = false)
     private String identificacion;
@@ -49,12 +49,12 @@ public class Clientes {
         this.id = id;
     }
 
-    public String getTotal() {
-        return total;
+    public String getTipoidentificacion() {
+        return tipoidentificacion;
     }
 
-    public void setTotal(String total) {
-        this.total = total;
+    public void setTipoidentificacion(String tipoidentificacion) {
+        this.tipoidentificacion = tipoidentificacion;
     }
 
     public String getIdentificacion() {

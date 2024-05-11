@@ -21,14 +21,14 @@ public class ServiceClientes implements IServiceClientes {
     }
 
     @Override
-    public Clientes getCliente(Long id) {
-        Optional<Clientes> cliente = this.repositryClientes.findById(id);
-        return cliente.orElse(null);
+    public void getCliente(Long id) {
+
     }
 
     @Override
-    public void addCliente(Clientes cliente) {
-        this.repositryClientes.save(cliente);
+    public Clientes addCliente(Clientes cliente) {
+        Clientes clientes = this.repositryClientes.save(cliente);
+        return clientes;
     }
 
     @Override
