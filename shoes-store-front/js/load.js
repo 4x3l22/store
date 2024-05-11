@@ -33,7 +33,7 @@ function clientes() {
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row cuadrar_tabla">
             <table id="ventas">
                 <tr class="mitr">
                     <th scope="col">ID Cliente</th>
@@ -50,6 +50,25 @@ function clientes() {
                 <tbody id="resumenVentas">
                 
                 </tbody>
+                <!--<tfoot id="pagination">
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                </tfoot>-->
             </table>
         </div>
         <div class="modal fade" id="modalClienteRegistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -126,6 +145,7 @@ function clientes() {
                 </div>
             </div>
         </div>
+      
         <script>
             loadCliente();
         </script>

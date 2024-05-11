@@ -21,8 +21,9 @@ public class ServiceClientes implements IServiceClientes {
     }
 
     @Override
-    public void getCliente(Long id) {
-
+    public Optional<Clientes> listClienteId(Long id) {
+        Optional<Clientes> clientesList = this.repositryClientes.findById(id);
+        return clientesList;
     }
 
     @Override
@@ -33,6 +34,26 @@ public class ServiceClientes implements IServiceClientes {
 
     @Override
     public void deleteCliente(Long id) {
+        repositryClientes.deleteById(id);
+    }
 
+    @Override
+    public void updateCliente(Long id, Clientes cliente) {
+
+       Clientes clientesexisten = repositryClientes.findById(id).orElseThrow();
+        clientesexisten.setNombreCliente(cliente.getNombreCliente());
+        clientesexisten.setApellidoCliente(cliente.getApellidoCliente());
+        clientesexisten.setCiudad(cliente.getCiudad()) ;
+        clientesexisten.setTelefono(cliente.getTelefono());
+        clientesexisten.setTipoidentificacion(cliente.getTipoidentificacion());
+        clientesexisten.setDireccion(cliente.getDireccion());
+        clientesexisten.setEstado(cliente.getEstado());
+
+        repositryClientes.save(clientesexisten);
+    }
+
+    @Override
+    public List<Clientes> findByNombreCliente(String nombreCliente) {
+        return repositryClientes.findByNombreCliente(nombreCliente);
     }
 }
